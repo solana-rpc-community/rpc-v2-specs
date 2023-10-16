@@ -4,7 +4,7 @@ A repository for RPC v2 related specifications & documents. This document is wor
 ## Objectives
 1. Discuss changes to the standard RPC API. [https://docs.solana.com/api/http#json-rpc-api-reference]
 2. Create a reference implementation that will support the standard API using common open-source software tools. The primary objectives are API compatibility and vendor configurability. Performance is a secondary concern for the reference implementation because vendor-specific infrastructure will ultimately determine performance.
-3. The reference implementation should provide a base level of service for devnet with modular options to scale up for mainnet.
+3. The reference implementation should provide a base level of service for local testing with modular options to scale up for mainnet.
 
 ## Overview
 ### Intended User
@@ -14,10 +14,10 @@ Solana developers building the next great web3 app who want to run their own inf
 They need reference RPC software that scales from localhost up to a single-location, single-tenant mainnet service.
 
 ### Solution
-The default configuration is suitable for a local devnet RPC service. There is also documentation illustrating a single-location, single-tenant mainnet service along with recommended hardware & configuration. Teams building Commercial or large-scale applications can use the reference implementation as a guide for their work -- some assembly required.
+The default configuration is suitable for a local test RPC service. There is also documentation illustrating a single-location, single-tenant mainnet service along with recommended hardware & configuration. Teams building Commercial or large-scale applications can use the reference implementation as a guide for their work -- some assembly required.
 
 ### Value Proposition (how much will this cost?)
-The default configuration is intended to run devnet RPC on a single server locally or in the cloud. Server specs TBD. A typical mainnet solution will require 2-3 bare metal servers running in a professional data center. Additional servers will be required for add-on services like the Metaplex DAS Read API.
+A typical mainnet solution will be possible on a single high-spec bare metal server running in a professional data center. Additional servers will be required for scaling up or add-on services like the Metaplex DAS Read API.
 
 ## Details
 ### Model View Controller (MVC)
