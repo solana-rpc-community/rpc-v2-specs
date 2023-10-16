@@ -27,13 +27,15 @@ Built using a common MVC architecture for modular and maintainable code.
 - Views -- Parse the backend response based on the client request. For example, jsonParsed TX + parsing from Anchor IDL. Requests for the default format of base64 will bypass the view later for better performance.
 - Model -- the backend data servers or validator RPC which will return data in base64 format.
 
+Architecture is represented [here](architecture.md)
+
 ### Subject Domains
 Solana RPC can be segmented into several subject domains. Each of the domains can be served from separate backends. The domains are:
-- sendTX -- methods related to sending and confirming transactions.
-- Accounts -- methods used to query accounts by id, program, owner, etc.
-- Consensus -- methods related to validator consensus (leader schedule, stakes, vote accounts, etc.)
-- History -- query transactions and blocks back to genesis
-- Cluster -- metadata related to cluster performance, health, etc.
+- [sendTX](send_tx.md) -- methods related to sending and confirming transactions.
+- [Accounts](accounts.md) -- methods used to query accounts by id, program, owner, etc.
+- [Consensus](consensus.md) -- methods related to validator consensus (leader schedule, stakes, vote accounts, etc.)
+- [History](history.md) -- query transactions and blocks back to genesis
+- [Cluster](cluster) -- metadata related to cluster performance, health, etc.
 
 ## Contributors
 - [Ellipsis Labs](https://ellipsislabs.xyz/)
