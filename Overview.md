@@ -106,6 +106,7 @@ The adoption of Solana RPC-v2 offers several significant benefits to the Solana 
 ## Overall architecture
 
 ### Model View Controller (MVC)
+
 Built using a common MVC architecture for modular and maintainable code.
 - Router -- Receive client request, route the request to the appropriate
   controller, get formatted response from controller, send it to the client.
