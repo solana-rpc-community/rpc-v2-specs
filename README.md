@@ -1,41 +1,42 @@
-# Solana RPC v2 Specs
-A repository for RPC v2 related specifications & documents. This document is work-in-progress and subject to change.
+# Solana RPC v2 Project
+A repository for RPC v2 project related specifications, documents and discussions.
 
-## Objectives
-1. Discuss changes to the standard RPC API. [https://docs.solana.com/api/http#json-rpc-api-reference]
-2. Create a reference implementation that will support the standard API using common open-source software tools. The primary objectives are API compatibility and vendor configurability. Performance is a secondary concern for the reference implementation because vendor-specific infrastructure will ultimately determine performance.
-3. The reference implementation should provide a base level of service for local testing with modular options to scale up for mainnet.
+## Project Objectives
+1. Bring experts around the Solana RPC API together to share and discuss ideas.
+2. Define way forward of the Solana RPC API.
+3. Discuss ways to interface between RPC and the Solana validator.
+4. Create a **Vanilla RPCv2 implementation** outside the Solana Validator Core.
+5. Make building blocks **Vanilla RPCv2 implementation** available to the community.
 
-## Overview
-### Intended User
-Solana developers building the next great web3 app who want to run their own infrastructure.
+###### on naming "Vanilla RPCv2 implementation" [discussion](https://github.com/solana-rpc-community/rpc-v2-specs/issues/3)
 
-### Problem
-They need reference RPC software that scales from localhost up to a single-location, single-tenant mainnet service.
+## Information structure
+* if you want to change a document, please [create](https://github.com/solana-rpc-community/rpc-v2-specs/pulls) a pull request
+* if you want to open a discussion or reach out to the community, please [create](https://github.com/solana-rpc-community/rpc-v2-specs/issues/new) an issue
+* relevant discussion on the Telegram group should somehow be summarized in a GitHub issue or document
 
-### Solution
-The default configuration is suitable for a local test RPC service. There is also documentation illustrating a single-location, single-tenant mainnet service along with recommended hardware & configuration. Teams building Commercial or large-scale applications can use the reference implementation as a guide for their work -- some assembly required.
 
-### Value Proposition (how much will this cost?)
-A typical mainnet solution will be possible on a single high-spec bare metal server running in a professional data center. Additional servers will be required for scaling up or add-on services like the Metaplex DAS Read API.
+## Artefacts
+### Intended Users, Stakeholders
+See TBD document ([Stakeholders and Goals](rpc_needs.md))
 
-## Details
-### Model View Controller (MVC)
-Built using a common MVC architecture for modular and maintainable code.
-- Router -- Receive client request, route the request to the appropriate controller, get formatted response from controller, send it to the client. Written as a stand-alone service so it is not tied to load balancer software (HAproxy, NGINX, etc).
-- Controller -- Get the request from the router, send it to backend, get the respsonse from the backend, send the response to the view layer for parsing, get the rendered view, and send the response to router to send back to the client.
-- Views -- Parse the backend response based on the client request. For example, jsonParsed TX + parsing from Anchor IDL. Requests for the default format of base64 will bypass the view later for better performance.
-- Model -- the backend data servers or validator RPC which will return data in base64 format.
 
-### Subject Domains
-Solana RPC can be segmented into several subject domains. Each of the domains can be served from separate backends. The domains are:
-- sendTX -- methods related to sending and confirming transactions.
-- Accounts -- methods used to query accounts by id, program, owner, etc.
-- Consensus -- methods related to validator consensus (leader schedule, stakes, vote accounts, etc.)
-- History -- query transactions and blocks back to genesis
-- Cluster -- metadata related to cluster performance, health, etc.
+### Non-functional requirements for the **Vanilla RPCv2 implementation**
+* find discussion [here](https://github.com/solana-rpc-community/rpc-v2-specs/issues/9)
+
+
+### Interfacing between RPC and the Solana validator
+* find discussion on network specification [here](https://github.com/solana-rpc-community/rpc-v2-specs/issues/10)
+
+
+### API Subject Domains
+Solana RPC API can be segmented into several subject domains.
+Many discussions and concepts will be structured around these domains.
+Find the definitions of these domains [here](api_domains/tbd_phil.md) (maintained by [Philippe (Mango)](https://github.com/musitdev))
+
 
 ## Contributors
+Many thanks to everybody sharing their insights, expertise, work and time:
 - [Ellipsis Labs](https://ellipsislabs.xyz/)
 - [Helium](https://www.helium.com/)
 - [Helius](https://helius.xyz)
@@ -43,3 +44,11 @@ Solana RPC can be segmented into several subject domains. Each of the domains ca
 - [Sniper Labs](https://www.sniper.xyz/)
 - [Solana Foundation](https://solana.org)
 - [Triton One](https://www.triton.one)
+
+
+This GitHub organization is managed by [godmodegalactus](https://github.com/godmodegalactus).
+
+These people are helping to organize the project and structure the conversations:
+- Brian Long (Triton One)
+- [Groovie (Mango)](https://github.com/grooviegermanikus)
+- [Philippe (Mango)](https://github.com/musitdev)
