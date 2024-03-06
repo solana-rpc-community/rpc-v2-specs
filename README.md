@@ -32,7 +32,7 @@ See TBD document ([Stakeholders and Goals](rpc_needs.md))
 ### API Subject Domains
 Solana RPC API can be segmented into several subject domains.
 Many discussions and concepts will be structured around these domains.
-Find the definitions of these domains [here](api_domains/tbd_phil.md).
+Find the definitions of these domains [here](APIDOMAINS.md).
 
 
 ## Contributors
