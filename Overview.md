@@ -135,7 +135,8 @@ can be served from separate backends. The domains are:
 - *Accounts* -- methods used to query accounts by id, program, owner, etc.
 - *Consensus* -- methods related to validator consensus (leader schedule, stakes,
   vote accounts, etc.)
-- *History* -- query transactions and blocks back to genesis
+- *Blocks* -- Processing blocks produced by the cluster.
+- *History* -- Support query transactions, gSFA and blocks back to genesis.
 - *Cluster* -- metadata related to cluster epoch data, performance, health, etc.
 - Prioritization Fees - meta related to prioritization fees, overall, by
   accounts.
