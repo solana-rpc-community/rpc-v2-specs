@@ -51,4 +51,4 @@ This GitHub organization is managed by [godmodegalactus](https://github.com/godm
 These people are helping to organize the project and structure the conversations:
 - Brian Long (Triton One)
 - [Groovie (Mango)](https://github.com/grooviegermanikus)
-- [Philippe (Mango)](https://github.com/musitdev)
+- [Godmode Galactus (Mango)](https://github.com/godmodegalactus)
